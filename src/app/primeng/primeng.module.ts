@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {RippleModule} from "primeng/ripple";
+import {TieredMenuModule} from "primeng/tieredmenu";
+import {DialogModule} from "primeng/dialog";
+import {ButtonModule} from "primeng/button";
+import {CardModule} from "primeng/card";
 
 
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ],
   exports: [
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RippleModule,
+    TieredMenuModule,
+    DialogModule,
+    ButtonModule,
+    CardModule
   ]
 })
 export class PrimengModule { }

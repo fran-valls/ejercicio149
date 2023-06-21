@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { BanderasComponent } from './components/banderas/banderas.component';
 import { CapitalesComponent } from './components/capitales/capitales.component';
+import {PrimengModule} from "../primeng/primeng.module";
 
 
 
@@ -17,7 +18,8 @@ import { CapitalesComponent } from './components/capitales/capitales.component';
     HomeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PrimengModule
   ]
 })
 export class PreguntasModule { }
