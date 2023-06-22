@@ -9,41 +9,38 @@
     <p>¿Quieres jugar?</p>
     <ng-template pTemplate="footer">
       <div class="text-center">
-        <p-button icon="pi pi-flag-fill" (click)="visible = false; visibleCard = true" label="Empezar" styleClass="p-button-success"></p-button>
+        <p-button icon="pi pi-flag-fill" (click)="visible = false" label="Empezar" styleClass="p-button-success"></p-button>
       </div>
     </ng-template>
   </p-dialog>
 </div>
 
-<div *ngIf="visibleCard" class="card flex justify-content-center">
-  <p-card header="Adivina la bandera" subheader="" [style]="{ width: '35rem' }">
-    <ng-template pTemplate="header">
-      <div class="grid">
-        <p class="col-6">Puntos {{puntos}}</p>
-        <p class="col-6 text-right">Tiempo {{tiempo}}</p>
+
+<p-card [hidden]="visible" header="Adivina la bandera" subheader="" [style]="{ width: '35rem' }">
+  <ng-template pTemplate="header">
+    <div class="grid">
+      <p class="col-6">Puntos {{puntos}}</p>
+      <p class="col-6 text-right">Tiempo {{tiempo}}</p>
+    </div>
+    <img alt="Card" [src]="" />
+  </ng-template>
+  <p>
+
+  </p>
+  <ng-template pTemplate="footer">
+    <div class="grid text-center">
+      <div class="col-6">
+        <p-button label="Pais 1" icon="pi pi-check"></p-button>
       </div>
-      <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
-    </ng-template>
-    <p>
-
-    </p>
-    <ng-template pTemplate="footer">
-      <div class="grid text-center">
-        <div class="col-6">
-          <p-button label="Pais 1" icon="pi pi-check"></p-button>
-        </div>
-        <div class="col-6">
-          <p-button label="Pais 2" icon="pi pi-check"></p-button>
-        </div>
-        <div class="col-6">
-          <p-button label="Pais 3" icon="pi pi-check"></p-button>
-        </div>
-        <div class="col-6">
-
-          <p-button label="Pais 4" icon="pi pi-check"></p-button>
-        </div>
+      <div class="col-6">
+        <p-button label="Pais 2" icon="pi pi-check"></p-button>
       </div>
-    </ng-template>
-  </p-card>
-</div>
-
+      <div class="col-6">
+        <p-button label="Pais 3" icon="pi pi-check"></p-button>
+      </div>
+      <div class="col-6">
+        <p-button label="Pais 4" icon="pi pi-check"></p-button>
+      </div>
+    </div>
+  </ng-template>
+</p-card>

@@ -11,20 +11,16 @@ import {Pais} from "../../../shared/models/pais.model";
 })
 export class BanderasComponent implements OnInit{
   visible: boolean;
-  visibleCard: boolean;
   puntos: number;
   tiempo: number = 0;
-  pregunta: PreguntaBandera | null;
   cargandoPaises: boolean;
+  pregunta!: PreguntaBandera;
 
   constructor(public paisesService: PaisesService, public httpClient: HttpClient){
     this.visible = true;
-    this.visibleCard = false;
     this.puntos = 0;
     this.tiempo = 0;
-    this.pregunta = null;
     this.cargandoPaises = false;
-
   }
 
   showDialog() {
@@ -47,7 +43,4 @@ export class BanderasComponent implements OnInit{
       }
     )
   }
-
-
-
 }
