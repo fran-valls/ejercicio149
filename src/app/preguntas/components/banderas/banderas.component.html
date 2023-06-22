@@ -9,37 +9,39 @@
     <p>¿Quieres jugar?</p>
     <ng-template pTemplate="footer">
       <div class="text-center">
-        <p-button icon="pi pi-flag-fill" (click)="visible = false" label="Empezar" styleClass="p-button-success"></p-button>
+        <p-button icon="pi pi-flag-fill" (click)="empezar()" label="Empezar" styleClass="p-button-success"></p-button>
       </div>
     </ng-template>
   </p-dialog>
 </div>
 
 
-<p-card [hidden]="visible" header="Adivina la bandera" subheader="" [style]="{ width: '35rem' }">
+<p-card [hidden]="visible" header="Adivina la bandera" [style]="{ width: '35rem' }" >
   <ng-template pTemplate="header">
     <div class="grid">
-      <p class="col-6">Puntos {{puntos}}</p>
-      <p class="col-6 text-right">Tiempo {{tiempo}}</p>
+      <p class="col-6">
+        Puntos
+        <span class="{{puntos > 0 ? 'bg-green-400':'bg-red-400'}} p-badge">{{puntos}}</span>
+      </p>
+      <p class="col-6 text-right">
+        Tiempo
+        <span class="{{tiempo > 5 ? 'bg-green-400':'bg-red-400'}} p-badge">{{tiempo}}s</span>
+      </p>
     </div>
-    <img alt="Card" [src]="" />
+    <div class="imagen-container">
+      <img alt="Card" [src]="pregunta.bandera" [ngStyle]="getEstiloImagen(pregunta.bandera)"/>
+    </div>
   </ng-template>
   <p>
 
   </p>
   <ng-template pTemplate="footer">
     <div class="grid text-center">
-      <div class="col-6">
-        <p-button label="Pais 1" icon="pi pi-check"></p-button>
+      <div *ngFor="let nombre of pregunta.desordenadas" class="col-6">
+        <p-button [hidden]="finTiempo" label="{{nombre}}" (click)="comprobarAcierto(nombre)" ></p-button>
       </div>
-      <div class="col-6">
-        <p-button label="Pais 2" icon="pi pi-check"></p-button>
-      </div>
-      <div class="col-6">
-        <p-button label="Pais 3" icon="pi pi-check"></p-button>
-      </div>
-      <div class="col-6">
-        <p-button label="Pais 4" icon="pi pi-check"></p-button>
+      <div *ngIf="finTiempo" class="col-12">
+        <p-button class="text-center" (click)="reiniciar()" label="Reiniciar"></p-button>
       </div>
     </div>
   </ng-template>

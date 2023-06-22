@@ -5,6 +5,7 @@ import {TieredMenuModule} from "primeng/tieredmenu";
 import {DialogModule} from "primeng/dialog";
 import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
+import {BadgeModule} from "primeng/badge";
 
 
 
@@ -16,7 +17,8 @@ import {CardModule} from "primeng/card";
     TieredMenuModule,
     DialogModule,
     ButtonModule,
-    CardModule
+    CardModule,
+    BadgeModule
   ]
 })
 export class PrimengModule { }
